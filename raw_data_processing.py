@@ -19,7 +19,7 @@ from datetime import date
 import warnings
 warnings.filterwarnings("ignore")
 
-
+show_histograms = False
     
 # Below is just data_reform.py
 
@@ -90,7 +90,7 @@ pyplot.hist(reformatted[7], bins = 100, range= (0.7, 1.2))
 pyplot.title("Histogram of Degree of Polarization values")
 
 pyplot.savefig("DOP_histo-" + today.strftime("%b-%d-%Y") + ".png", dpi = 1000)
-pyplot.show(block = False)
+pyplot.show(block = show_histograms)
 pyplot.close()
 
 #histo of std dev between stokes vector components between repeat trials.
@@ -99,7 +99,7 @@ pyplot.hist(std_dev_list, bins = 100, range = (0, 0.02))
 pyplot.title("Histogram of Standard Deviation of Stokes vectors between trials")
 
 pyplot.savefig("STD_histo-" + today.strftime("%b-%d-%Y") + ".png", dpi = 1000)
-pyplot.show(block = False)
+pyplot.show(block = show_histograms)
 pyplot.close()
 
 #2nd power histo separated by H and D
@@ -116,7 +116,7 @@ pyplot.title("Histogram of power of H and D polarized photons")
 pyplot.legend(loc='upper right')
 pyplot.xlabel("Power / W")
 pyplot.savefig("power_histo-" + today.strftime("%b-%d-%Y") + ".png", dpi = 1000)
-pyplot.show(block = False)
+pyplot.show(block = show_histograms)
 pyplot.close()
 
 inner_prod = np.zeros(int(len(reformatted[0])/2))
@@ -128,7 +128,7 @@ for x in range(int(len(reformatted[0])/2)):
 pyplot.hist(inner_prod, bins = 100)
 pyplot.title("Histogram of inner products for H and D vectrors")
 pyplot.savefig("innerProd-" + today.strftime("%b-%d-%Y") + ".png")
-pyplot.show(block = False)
+pyplot.show(block = show_histograms)
 pyplot.close()
 
 
